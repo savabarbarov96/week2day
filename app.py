@@ -1,5 +1,5 @@
 import re
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
@@ -27,6 +27,11 @@ def week_to_date(week_string):
         return target_date.strftime('%d %B, %A')
     except Exception as e:
         return f"Error: An unexpected error occurred: {str(e)}"
+
+@app.route('/<date>')
+def json_response(date):
+    return jsonify(week_to_date(date))
+
 
 
 @app.route('/', methods=['GET', 'POST'])
