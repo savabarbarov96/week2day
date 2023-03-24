@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week to Date Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e1e1e 0%, #4b4b4b 100%);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        input, button {
+            font-size: 1rem;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            outline: none;
+        }
+        input {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+        button {
+            background: #4caf50;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #6ed56c;
+        }
+        .result {
+            margin-top: 16px;
+            font-size: 1.2rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Week to Date Converter</h1>
+    <form method="POST">
+        <label for="week_string">Enter week string (e.g., wk2315.2 or 2315.2):</label>
+        <input type="text" id="week_string" name="week_string" required>
+        <button type="submit">Submit</button>
+    </form>
+    {% if result %}
+    <p class="result">Result: {{ result }}</p>
+    {% endif %}
+</body>
+</html>
